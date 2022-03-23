@@ -31,6 +31,7 @@ except Exception:
 class Sketch(CanvasBase):
     
     curveCoordinates = ""
+    coordinates = []
     debug = 0
     texture = None
     # control flags
@@ -127,6 +128,7 @@ class Sketch(CanvasBase):
             for pt in newPtList:
                 x,y=pt.coords
                 self.curveCoordinates += "V " + str(x) + " " + str(y) + "\n"
+                self.coordinates.append("V " + str(x) + " " + str(y) + "\n")
                 self.drawPoint(buff, pt)
         return
     def Interrupt_Keyboard(self, keycode):
@@ -455,7 +457,7 @@ if __name__ == "__main__":
         canvas.points_r.clear() #Since Bezier curve keeps the one of the previous coordinate
         with open("curveCoordinates.txt","w") as f:
             f.write(canvas.curveCoordinates)
-        DFXwriter = writeDFX(canvas.curveCoordinates)
+        DFXwriter = writeDFX(canvas.coordinates)
         DFXwriter.draw()
 
     def codingDebug():

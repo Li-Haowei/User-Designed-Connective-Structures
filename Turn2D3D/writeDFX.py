@@ -11,13 +11,13 @@ from dxfwrite import DXFEngine as dxf
 
 class writeDFX():
     def __init__(self, vertices):
+        print(vertices)
         self.vertices = self.parseVerticesFromStringToInt(vertices)
         
     def parseVerticesFromStringToInt(self, vertices):
         arr = []
         for i in range(len(vertices)):
             string = vertices[i].split('V ')
-            print(string)
             string = string[1].split('\n')
             string = string[0].split(' ')
             arr.append((int(string[0])/100,int(string[0])/100))
