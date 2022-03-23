@@ -11,7 +11,6 @@ from dxfwrite import DXFEngine as dxf
 
 class writeDFX():
     def __init__(self, vertices):
-        print(vertices)
         self.vertices = self.parseVerticesFromStringToInt(vertices)
         
     def parseVerticesFromStringToInt(self, vertices):
@@ -20,7 +19,7 @@ class writeDFX():
             string = vertices[i].split('V ')
             string = string[1].split('\n')
             string = string[0].split(' ')
-            arr.append((int(string[0])/100,int(string[0])/100))
+            arr.append((int(string[0])/10,int(string[1])/10))
         return arr
     def draw(self):
         drawing = dxf.drawing('test.dxf')
@@ -29,3 +28,8 @@ class writeDFX():
             drawing.add(dxf.line(self.vertices[i], self.vertices[i+1], color=7, layer='LINES'))
         drawing.save()
             
+        
+        """polyline= dxf.polyline(linetype='DOT')
+        polyline.add_vertices( [(0,20), (3,20), (6,23), (9,23)] )
+        drawing.add(polyline)
+        drawing.save()"""
