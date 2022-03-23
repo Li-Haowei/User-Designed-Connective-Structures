@@ -23,13 +23,8 @@ class writeDFX():
         return arr
     def draw(self):
         drawing = dxf.drawing('test.dxf')
-        drawing.add_layer('LINES')
-        for i in range(0,len(self.vertices),2):
-            drawing.add(dxf.line(self.vertices[i], self.vertices[i+1], color=7, layer='LINES'))
+        polyline= dxf.polyline(linetype='DOT')
+        polyline.add_vertices(self.vertices)
+        drawing.add(polyline)
         drawing.save()
             
-        
-        """polyline= dxf.polyline(linetype='DOT')
-        polyline.add_vertices( [(0,20), (3,20), (6,23), (9,23)] )
-        drawing.add(polyline)
-        drawing.save()"""
