@@ -122,14 +122,18 @@ class Sketch(CanvasBase):
         for i in range(len(curve)-1):
             x1,y1=curve[i]
             x2,y2=curve[i+1]
+            #print(curve)
             pt1 = Point((int(x1), int(y1)), ColorType(0, 1, 0))
             pt2 = Point((int(x2), int(y2)), ColorType(0, 1, 0))
-            newPtList = self.bresenham(pt1,pt2)
-            for pt in newPtList:
-                x,y=pt.coords
-                self.curveCoordinates += "V " + str(x) + " " + str(y) + "\n"
-                self.coordinates.append("V " + str(x) + " " + str(y) + "\n")
-                self.drawPoint(buff, pt)
+# =============================================================================
+#             newPtList = self.bresenham(pt1,pt2)
+#             for pt in newPtList:
+#                 x,y=pt.coords
+# =============================================================================
+            self.curveCoordinates += "V " + str(int(x1)) + " " + str(int(y1)) + "\n"
+            self.coordinates.append("V " + str(int(x2)) + " " + str(int(y2)) + "\n")
+            self.drawPoint(buff, pt1)
+            self.drawPoint(buff, pt2)
         return
     def Interrupt_Keyboard(self, keycode):
         """
