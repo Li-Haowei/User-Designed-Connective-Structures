@@ -19,6 +19,7 @@ from Buff import Buff
 from Point import Point
 from ColorType import ColorType
 from CanvasBase import CanvasBase
+from writeDFX import writeDFX
 try:
     # From pip package "Pillow"
     from PIL import Image
@@ -55,6 +56,7 @@ class Sketch(CanvasBase):
         """
         super(Sketch, self).__init__(parent)
         
+            
         """clean the curveCoords textfile"""
         file  = open("curveCoordinates.txt","w")
         file.close()
@@ -453,7 +455,8 @@ if __name__ == "__main__":
         canvas.points_r.clear() #Since Bezier curve keeps the one of the previous coordinate
         with open("curveCoordinates.txt","w") as f:
             f.write(canvas.curveCoordinates)
-
+        DFXwriter = writeDFX(canvas.curveCoordinates)
+        DFXwriter.draw()
 
     def codingDebug():
         """
