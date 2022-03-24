@@ -119,7 +119,7 @@ class Sketch(CanvasBase):
         x4,y4 = p4.coords
         ptlist = [(x1,y1),(x2,y2),(x3,y3),(x4,y4)]
         curve = bezier.make_bezier(ptlist)(ts)
-        for i in range(len(curve)-1):
+        for i in range(0,len(curve)-1,2):
             x1,y1=curve[i]
             x2,y2=curve[i+1]
             #print(curve)

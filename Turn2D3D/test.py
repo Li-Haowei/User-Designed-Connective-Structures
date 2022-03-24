@@ -10,10 +10,11 @@ from dxfwrite import DXFEngine as dxf
 
 #Polyline
 drawing = dxf.drawing('drawing.dxf')
-polyline= dxf.polyline(linetype='DOT')
-polyline.add_vertices( [(0,20), (3,20), (6,23), (9,23), (15,23)] )
-polyline.POLYMESH_BEZIER_SURFACE
-drawing.add(polyline)
+point = dxf.point((1.0, 1.0))
+point['layer'] = 'points'
+point['color'] = 7
+point['point'] = (2, 3) # int or float
+drawing.add(point)
 drawing.save()
 
 

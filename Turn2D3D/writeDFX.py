@@ -7,7 +7,7 @@ Created on Wed Mar 23 12:34:20 2022
 
 from dxfwrite import DXFEngine as dxf
 
-
+#v3
 
 class writeDFX():
     def __init__(self, vertices):
@@ -27,4 +27,5 @@ class writeDFX():
         polyline.add_vertices(self.vertices)
         drawing.add(polyline)
         drawing.save()
-            
+
+
