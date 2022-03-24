@@ -19,7 +19,7 @@ class writeDFX():
             string = vertices[i].split('V ')
             string = string[1].split('\n')
             string = string[0].split(' ')
-            arr.append((int(string[0])/10,int(string[1])/10))
+            arr.append((float(string[0])/50,float(string[1])/50))
         return arr
     def draw(self):
         drawing = dxf.drawing('test.dxf')

@@ -131,7 +131,9 @@ class Sketch(CanvasBase):
 #                 x,y=pt.coords
 # =============================================================================
             self.curveCoordinates += "V " + str(int(x1)) + " " + str(int(y1)) + "\n"
-            self.coordinates.append("V " + str(int(x2)) + " " + str(int(y2)) + "\n")
+            self.curveCoordinates += "V " + str(int(x2)) + " " + str(int(y2)) + "\n"
+            self.coordinates.append("V " + str(x1) + " " + str(y1) + "\n")
+            self.coordinates.append("V " + str(x2) + " " + str(y2) + "\n")
             self.drawPoint(buff, pt1)
             self.drawPoint(buff, pt2)
         return
