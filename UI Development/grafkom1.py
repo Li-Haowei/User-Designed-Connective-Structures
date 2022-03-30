@@ -67,7 +67,7 @@ def main():
     #first number is the distance between camera and object
     #second number is for the image ratio, for example, <1 will be flatten and >1 stretch the image
     #third and fourth, i am not sure
-    gluPerspective(10, float(800) / 600, .1, 1000.)
+    gluPerspective(100, float(800) / 600, .1, 1000.)
     glMatrixMode(GL_MODELVIEW)
     glLoadIdentity()
     objectTeddy = objItem()
