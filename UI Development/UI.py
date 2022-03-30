@@ -9,8 +9,31 @@ import pygame
 import tkinter as tk
 from tkinter import *
 import platform
+from OpenGL.GL import *
+from OpenGL.GLU import *
+import math
+import grafkom1Framework as graphics
 
 
+class objItem(object):
+
+    def __init__(self):
+        self.angle = 0
+        self.vertices = []
+        self.faces = []
+        self.coordinates = [0, 0, -65]  # [x,y,z]
+        self.teddy = graphics.ObjLoader("teddy.obj")
+        self.position = [0, 0, -50]
+        
+    def render_scene(self):
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glClearColor(0.902, 0.902, 1, 0.0)
+        glMatrixMode(GL_MODELVIEW)
+        glLoadIdentity()
+        gluLookAt(0, 0, 0, math.sin(math.radians(self.angle)), 0, math.cos(math.radians(self.angle)) * -1, 0, 1, 0)
+        glTranslatef(self.coordinates[0], self.coordinates[1], self.coordinates[2])
+            
 screenOn = True
 root = tk.Tk()
 embed = tk.Frame(root, width = 500, height = 500) #creates embed frame for pygame window
@@ -19,22 +42,36 @@ embed.pack(side = LEFT) #packs window to the left
 buttonwin = tk.Frame(root, width = 75, height = 500)
 buttonwin.pack(side = LEFT)
 #Button(root, text="Quit", command=root.destroy).pack()
+
+
 os.environ['SDL_WINDOWID'] = str(embed.winfo_id())
 os.environ['SDL_VIDEODRIVER'] = 'windib'
-screen = pygame.display.set_mode((500,500))
+screen = pygame.display.set_mode((500,500), pygame.DOUBLEBUF | pygame.OPENGL)
 screen.fill(pygame.Color(255,255,255))
 pygame.display.init()
-pygame.display.update()
 
+# Feature checker 
+clock = pygame.time.Clock()
+glDisable(GL_TEXTURE_2D) 
+glEnable(GL_DEPTH_TEST) 
+glEnable(GL_BLEND) 
+glEnable(GL_CULL_FACE) 
+glMatrixMode(GL_PROJECTION)
+
+#pygame.display.update()
+gluPerspective(100, float(800) / 600, .1, 1000.)
+glMatrixMode(GL_MODELVIEW)
+glLoadIdentity()
+objectTeddy = objItem()
+done = False
 def draw():
     pygame.draw.circle(screen, (0,0,0), (250,250), 125)
     pygame.display.update()
 
-button1 = Button(buttonwin,text = 'Draw',  command=draw)
-button1.pack(side=LEFT)
-root.update()
+#button1 = Button(buttonwin,text = 'Draw',  command=draw)
+#button1.pack(side=LEFT)
+#root.update()
 
-done = False
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -42,7 +79,11 @@ while not done:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_q:
                  done = True
-    pygame.display.update()
+    objectTeddy.render_scene()
+    objectTeddy.teddy.render_scene()
+    pygame.display.flip()
+    clock.tick(30)
+    #pygame.display.update()
     root.update()
     if done:
         pygame.quit()
