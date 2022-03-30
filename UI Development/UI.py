@@ -16,7 +16,7 @@ import grafkom1Framework as graphics
 
 
 class objItem(object):
-
+    """class that renders obj"""
     def __init__(self):
         self.angle = 0
         self.vertices = []
@@ -33,7 +33,8 @@ class objItem(object):
         glLoadIdentity()
         gluLookAt(0, 0, 0, math.sin(math.radians(self.angle)), 0, math.cos(math.radians(self.angle)) * -1, 0, 1, 0)
         glTranslatef(self.coordinates[0], self.coordinates[1], self.coordinates[2])
-            
+
+#tkinter          
 screenOn = True
 root = tk.Tk()
 embed = tk.Frame(root, width = 500, height = 500) #creates embed frame for pygame window
@@ -41,9 +42,11 @@ embed.grid(columnspan = (600), rowspan = 500) # Adds grid
 embed.pack(side = LEFT) #packs window to the left
 buttonwin = tk.Frame(root, width = 75, height = 500)
 buttonwin.pack(side = LEFT)
-#Button(root, text="Quit", command=root.destroy).pack()
 
 
+
+    
+    
 os.environ['SDL_WINDOWID'] = str(embed.winfo_id())
 os.environ['SDL_VIDEODRIVER'] = 'windib'
 screen = pygame.display.set_mode((500,500), pygame.DOUBLEBUF | pygame.OPENGL)
@@ -63,28 +66,34 @@ gluPerspective(100, float(800) / 600, .1, 1000.)
 glMatrixMode(GL_MODELVIEW)
 glLoadIdentity()
 objectTeddy = objItem()
-done = False
-def draw():
-    pygame.draw.circle(screen, (0,0,0), (250,250), 125)
-    pygame.display.update()
 
-#button1 = Button(buttonwin,text = 'Draw',  command=draw)
-#button1.pack(side=LEFT)
-#root.update()
+
+done = False
+def quitUI():
+    root.destroy()
+    pygame.quit()
+    done = True
+Button(root, text="Quit", command=quitUI).pack()
+root.update()
 
 while not done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_q:
-                 done = True
-    objectTeddy.render_scene()
-    objectTeddy.teddy.render_scene()
-    pygame.display.flip()
-    clock.tick(30)
-    #pygame.display.update()
-    root.update()
-    if done:
-        pygame.quit()
-        root.destroy()
+    try:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                     done = True
+        objectTeddy.render_scene()
+        objectTeddy.teddy.render_scene()
+        pygame.display.flip()
+        clock.tick(30)
+        #pygame.display.update()
+        root.update()
+        if done:
+            pygame.quit()
+            root.destroy()
+    except:
+        done = True
+        print("game ends")
+    
