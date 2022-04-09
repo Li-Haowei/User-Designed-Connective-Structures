@@ -4,3 +4,7 @@ uTube_1:
 https://cad.onshape.com/documents/e5e1c5a3ba9e78145335a1a1/w/716cf4e919ded376d0b84295/e/7ef4d4d657d4137e30b8fb62?renderMode=0&uiState=6251183108dda840e7356c68
 90_degree_tube:
 https://cad.onshape.com/documents/b6de049a21d321f91c8a79e3/w/b2a1d4b323b323e36086ad4e/e/cdd4ce1150131fb3b0bdf3a4?renderMode=0&uiState=6251186e6a82af03c470b303
+curve_2:
+https://cad.onshape.com/documents/1bc659fe18eeffac8ef2e467/w/753f2267173e23a5e07b6fba/e/1bced4721f6c2030f0b2798d?renderMode=0&uiState=6251197da9967c542503db74
+sTube_1:
+https://cad.onshape.com/documents/5c001748ca94f82d64db700c/w/2364859640fbd9fa4f0426bb/e/892b6ac62477b80993fb1747?renderMode=0&uiState=62511c5a7e01d822910bd4ed
