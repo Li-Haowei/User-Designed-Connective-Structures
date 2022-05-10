@@ -1,3 +1,0 @@
-include NEWS README LICENSE
-recursive-include tests *.py ctbtest.ctb
-recursive-include examples *.py *.bat *.sh
