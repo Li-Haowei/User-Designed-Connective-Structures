@@ -9,12 +9,18 @@ The folder we mainly use will be "Turn2D3D" and other folders will not be direct
 The user can run Sketch.py in Turn2D3D, and use right clicks to create curves (every four right clicks will create 4 control points for a Bezier curve), the points of Bezier curve will be output in a text file named curveCoordinates.txt, which is used automatically to generate curves in dxf format and the file so far is named "test.dxf". <br>
 
 <h1>Libraries</h1>
+<h2>Ones used in MakeDXFCurve</h2>
 os <br>
 wxpython <br>
 math <br>
 random <br>
 numpy <br>
 PIL <br>
+<h2>Ones used in Connectivity</h2>
+pygame <br>
+math  <br>
+ezdxf  <br>
+bezier  <br>
 dxfwrite(I include this in the repository so user can place it into their library folder) <br>
 
 <h1>Report</h1>
