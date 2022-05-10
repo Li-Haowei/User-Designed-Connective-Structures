@@ -17,8 +17,7 @@ numpy <br>
 PIL <br>
 dxfwrite(I include this in the repository so user can place it into their library folder) <br>
 
-<h1>Overarching goal</h1>
-A software, with UI, that allow user to design curves and output as DFX format<br>
-The software will be able to calculate curvature, length, and possibly, calculating the time object travel given a speed<br>
-A marble track made of the curves produced from the software<br>
+<h1>Report</h1>
+https://docs.google.com/document/d/1r422rZli725Xf_rHzjm1X3xNgPw_heduPCVOU3lTeEs/edit?usp=sharing
+ 
  
