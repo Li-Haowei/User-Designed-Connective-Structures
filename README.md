@@ -10,6 +10,7 @@ The user can run Sketch.py in Turn2D3D, and use right clicks to create curves (e
 
 <h1>Libraries</h1>
 <h2>Ones used in MakeDXFCurve</h2>
+<h6>This version allows you to make DXF <b>curve</b> by right clicking four times to make four control points, which the program then will automatically generate a test.dxf file according to the curve you got from control points</h6>
 os <br>
 wxpython <br>
 math <br>
@@ -17,10 +18,11 @@ random <br>
 numpy <br>
 PIL <br>
 <h2>Ones used in Connectivity</h2>
+<h6>This version allows you to make DXF <b>curves</b> by right clicking four times to make four control points, and you can do that repeatively for a whole connected track. You can also draw straight lines. You can move to next layer by placing a special connector and click next button.</h6>
 pygame <br>
 math  <br>
 ezdxf  <br>
-bezier  <br>
+bezier (there are potential errors with this library, if you are running into error, please use previer MakeDXFCurve version) <br>
 dxfwrite(I include this in the repository so user can place it into their library folder) <br>
 
 <h1>Report</h1>
